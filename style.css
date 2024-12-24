@@ -1,0 +1,66 @@
+#showMoreBtn {
+    position: relative;
+    transition: transform 0.1s ease;
+  }
+  /* Contact Button Styles */
+.contact-btn {
+    position: relative;
+    overflow: hidden; /* To make sure the wave stays behind */
+    color: inherit; /* Ensure text color remains unchanged */
+    background-color: transparent;
+    display: inline-flex; /* Use inline-flex for better alignment */
+    align-items: center; /* Vertically align text and icon */
+    justify-content: center; /* Horizontally center content */
+    padding: 10px 30px; /* Padding for the button */
+    font-size: 16px;
+    border-radius: 30px; /* Rounded corners */
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1; /* Make sure text and icon stay above wave */
+  }
+  
+  /* Initial Wave Effect (visible behind the button text) */
+  .contact-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, #b820e6, #da7d20); /* Wave color gradient */
+    transform: translateX(-100%);
+    z-index: -1; /* Place the wave behind the button */
+    opacity: 0.3; /* Make the wave visible, but not too overpowering */
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+  }
+  
+  /* Wave Animation on Hover */
+  .contact-btn:hover::before {
+    animation: waveAnimation 4s ease-in-out infinite; /* Slower wave animation */
+    opacity: 0.6; /* Increase opacity when hovering */
+  }
+  
+  /* Define the wave animation */
+  @keyframes waveAnimation {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Adjust the arrow icon inside the button */
+  .contact-btn .arrow {
+    margin-left: 10px; /* Space between text and arrow */
+    transition: transform 0.3s ease; /* Add transition for smooth movement */
+  }
+  
+  .contact-btn:hover .arrow {
+    transform: translateX(5px); /* Arrow moves slightly on hover */
+  }
+  
